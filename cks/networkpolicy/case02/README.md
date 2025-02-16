@@ -1,0 +1,1 @@
+Allow only selected application to communicate with destinated application
