@@ -6,11 +6,11 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: B
+      app: applicationB
   policyTypes:
     - Ingress
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app: A
+              app: applicationA
