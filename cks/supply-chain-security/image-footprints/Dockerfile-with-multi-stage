@@ -2,6 +2,6 @@ FROM golang:1.21
 WORKDIR /app
 COPY main.go .
 RUN go build -o hello main.go
-FROM alpine
+FROM alpine:3.12.1
 COPY --from=0 /app .
 CMD ["./hello"]
