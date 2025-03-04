@@ -1,0 +1,1 @@
+$ docker run aquasec/trivy image --severity HIGH python:3.4-alpine
