@@ -1,23 +1,12 @@
-controlplane:~$ docker run -i kubesec/kubesec scan /dev/stdin < pod.yaml
-Unable to find image 'kubesec/kubesec:latest' locally
-latest: Pulling from kubesec/kubesec
-da9db072f522: Pull complete 
-8241a2b18af1: Pull complete 
-4f4fb700ef54: Pull complete 
-fd531c4fd41c: Pull complete 
-2cb9ea52b32d: Pull complete 
-ea029f6b6c7a: Pull complete 
-Digest: sha256:025a365d9f1881be51df17c323109ecf3c24b60c0d296143ea05c15479d0695e
-Status: Downloaded newer image for kubesec/kubesec:latest
 [
   {
     "object": "Pod/nginx.default",
     "valid": true,
     "fileName": "STDIN",
-    "message": "Passed with a score of 0 points",
-    "score": 0,
+    "message": "Passed with a score of 18 points",
+    "score": 18,
     "scoring": {
-      "advise": [
+      "passed": [
         {
           "id": "ApparmorAny",
           "selector": ".metadata .annotations .\"container.apparmor.security.beta.kubernetes.io/nginx\"",
