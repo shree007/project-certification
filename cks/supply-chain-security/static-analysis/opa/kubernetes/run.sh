@@ -1,0 +1,1 @@
+docker run --platform linux/amd64 --rm -v $(pwd):/project openpolicyagent/conftest test deploy.yaml
