@@ -1,0 +1,1 @@
+kubectl get po -oyaml | grep "image:" | grep -v "f:"
