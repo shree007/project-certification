@@ -1,0 +1,16 @@
+create key-->create csr-->API-->Download CRT from api --> use crt+key 
+
+openssl genrsa -out jane.key 3072
+openssl req -new -key jane.key -out jane.csr -subj "/CN=jane"
+cat jane.csr | base64 | tr -d "\n"
+kubectl apply -f signing-request.yaml
+kubectl get csr
+kubectl certificate approve jane
+kubectl get csr/jane -o yaml
+kubectl get csr jane -o jsonpath='{.status.certificate}'| base64 -d >jane.crt
+
+Configure the certificate into kubeconfig
+
+kubectl config set-credentials jane --client-key=jane.key --client-certificate=jane.crt --embed-certs=true
+kubectl config set-context jane --cluster=minikube --user=jane
+kubectl --context jane auth whoami
